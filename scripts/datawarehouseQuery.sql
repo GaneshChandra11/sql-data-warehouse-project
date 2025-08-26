@@ -1,5 +1,7 @@
 use DataWarehouse;
 
+
+
 create schema bronze;
 go
 create schema silver;

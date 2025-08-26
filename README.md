@@ -32,6 +32,3 @@ These insights empower stakeholders with key business metrics, enabling strategi
 
 ---
 
-## 🌟 About Me
-
-Hi there! I'm **Baraa Khatib Salkini**, also known as **Data With Baraa**. I’m an IT professional and passionate YouTuber on a mission to share knowledge in a way that’s enjoyable and engaging!

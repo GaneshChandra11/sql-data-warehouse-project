@@ -1,4 +1,17 @@
+/*
+====================================================================
+DDL Script: Create Bronze Tables
+====================================================================
 
+Script Purpose:
+   This script creates tables in the 'bronze' schema, dropping existing tables
+   if they already exist.
+   Run this script to re-define the DDL structure of 'bronze' Tables
+
+====================================================================
+*/
+use DataWarehouse;
+GO
 
 ---------------------------------------------------bronze layer Creation------------------------------------------------------------------
 
@@ -7,6 +20,7 @@
 
 if OBJECT_ID('bronze.crm_cust_info', 'u') IS NOT NULL
 drop table bronze.crm_cust_info;
+GO
 
 CREATE TABLE bronze.crm_cust_info(
     cst_id INT,
@@ -17,6 +31,7 @@ CREATE TABLE bronze.crm_cust_info(
     cst_gndr NVARCHAR(50),
     cast_created_date DATE,
 );
+GO
 
 
 select * from bronze.crm_cust_info;
@@ -25,6 +40,7 @@ select * from bronze.crm_cust_info;
 
 if OBJECT_ID('bronze.crm_prd_info', 'u') IS NOT NULL
 drop table bronze.crm_prd_info;
+GO
 
 CREATE TABLE bronze.crm_prd_info(
     prd_id INT,
@@ -35,6 +51,7 @@ CREATE TABLE bronze.crm_prd_info(
     prd_start_dt DATETIME,
     prd_end_dt DATETIME
 );
+GO
 
 select * from bronze.crm_prd_info;
 
@@ -42,6 +59,7 @@ select * from bronze.crm_prd_info;
 
 if OBJECT_ID('bronze.crm_sales_details', 'u') IS NOT NULL
 drop table bronze.crm_sales_details;
+GO
 
 create table bronze.crm_sales_details(
     sls_ord_num NVARCHAR(50),
@@ -54,6 +72,7 @@ create table bronze.crm_sales_details(
     sls_quantity int,
     sls_price int,
 );
+GO
 
 select * from bronze.crm_sales_details;
 
@@ -62,12 +81,14 @@ select * from bronze.crm_sales_details;
 
 if OBJECT_ID('bronze.erp_loc_a101', 'u') IS NOT NULL
 drop table bronze.erp_loc_a101; 
+GO
 
 create table bronze.erp_loc_a101(
     cid NVARCHAR(50),
    cntry nvarchar(50),
     
 );
+GO
 
 select * from bronze.erp_loc_a101;
 
@@ -76,12 +97,14 @@ select * from bronze.erp_loc_a101;
 
 if OBJECT_ID('bronze.erp_cust_az12', 'u') IS NOT NULL
 drop table bronze.erp_cust_az12;
+GO
 
 create table bronze.erp_cust_az12(
     cid NVARCHAR(50),
     bdate DATE,
     gen NVARCHAR(50)
 );
+GO
 
 select * from bronze.erp_cust_az12;
 
@@ -89,6 +112,7 @@ select * from bronze.erp_cust_az12;
 
 if OBJECT_ID('bronze.erp_px_cat_g1v2', 'u') IS NOT NULL
 drop table bronze.erp_px_cat_g1v2; 
+GO
 
 create table bronze.erp_px_cat_g1v2(
     id NVARCHAR(50),
@@ -96,6 +120,7 @@ create table bronze.erp_px_cat_g1v2(
     subcat NVARCHAR(50),
     maintenance NVARCHAR(50)
 );
+GO
 
 select * from bronze.erp_px_cat_g1v2;
 GO

@@ -1,6 +1,6 @@
 /*
 ====================================================================
-DDL Script: Create Bronze Tables
+DDL Script: Create Bronze Layer Tables
 ====================================================================
 
 Script Purpose:

@@ -1,3 +1,0 @@
-
-use DataWarehouse;
-GO

@@ -40,7 +40,7 @@ BEGIN
 		PRINT 'Loading CRM Tables';
 		PRINT '------------------------------------------------';
 
-
+select * from bronze.crm_cust_info
 
 
     /*===================================================Insert into Silver Layer Tables===============================================*/
@@ -55,7 +55,7 @@ BEGIN
         cst_key,
         cst_first_name,
         cst_last_name,
-        cst_material_status,
+        cst_marital_status,
         cst_gndr,
         cast_created_date
     )
@@ -65,16 +65,16 @@ BEGIN
     trim(cst_first_name) as cst_first_name,
     trim(cst_last_name) as cst_last_name,
     case 
-        when UPPER(TRIM(cst_material_status)) = 'S' then 'Single'
-        when UPPER(TRIM(cst_material_status)) = 'M' then 'Married'
+        when UPPER(TRIM(cst_marital_status)) = 'S' then 'Single'
+        when UPPER(TRIM(cst_marital_status)) = 'M' then 'Married'
         else 'n/a'
-    end as cst_material_status,-- Normalize marital status values to readable format
+    end as cst_marrit_status,                           -- Normalize marital status values to readable format
 
     case 
         when UPPER(TRIM(cst_gndr)) = 'M' then 'Male'
         when UPPER(TRIM(cst_gndr)) = 'F' then 'Female'
         else 'n/a'
-    end as cst_gndr_std,                                        -- Normalize gender values to readable format
+    end as cst_gndr_s_stdtd,                             -- Normalize gender values to readable format
 
     cast_created_date
     from (
@@ -88,7 +88,8 @@ BEGIN
         PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
         PRINT '>> -------------';
     
-
+    select * from silver.crm_cust_info;
+    
     ------------------------------------------------Check Data in Origin(Bronze Layer)Table-------------------------------------------
     
     

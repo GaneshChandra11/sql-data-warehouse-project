@@ -57,7 +57,7 @@ select * from bronze.crm_cust_info
         cst_last_name,
         cst_marital_status,
         cst_gndr,
-        cast_created_date
+        cst_created_date
     )
     SELECT 
     cst_id,
@@ -89,10 +89,8 @@ select * from bronze.crm_cust_info
         PRINT '>> -------------';
     
     select * from silver.crm_cust_info;
-    
-    ------------------------------------------------Check Data in Origin(Bronze Layer)Table-------------------------------------------
-    
-    
+
+    ------------------------------------------------Check Data in Origin(Bronze Layer)Table----------------------------------------------
     /* 
     ----------------------------------------------------------------------------------
     --Check for Nulls or Duplicates in primary key
@@ -318,8 +316,7 @@ select * from bronze.crm_cust_info
 
 
 
-
-    -----------------------------------------Check Data Quality in Silver Layer CRM Product Info Table  -----------------------------------------
+--------------------------------------Check Data Quality in Silver Layer CRM Product Info Table  -----------------------------------------
 
     ----------------------------------------
     --check for invalid dates of order date
@@ -442,7 +439,7 @@ select * from bronze.crm_cust_info
 
 
 
-    ---------------------------------------Check Data Quality in Silver Layer ERP Customer az12 Table  -----------------------------------------
+    ----------------------------------Check Data Quality in Silver Layer ERP Customer az12 Table  -----------------------------------------
 
 
     /*
@@ -515,7 +512,7 @@ select * from bronze.crm_cust_info
 
 
 
-    --------------------------------------------------------Insert into silver.erp_loc_az12 --------------------------------------------------
+    ----------------------------------------------------Insert into silver.erp_loc_az12 --------------------------------------------------
 
     set @start_time = GETDATE();
     PRINT '>>Truncating Table: silver.erp_loc_a101';
